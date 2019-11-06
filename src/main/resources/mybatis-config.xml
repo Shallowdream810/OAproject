@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  	<settings>
+		<!--全局开启应用缓存-->
+		<!--<setting name="cacheEnabled" value="true" />-->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!-- 全局配置文件开启分布查询的懒加载机制，-->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<!-- 同时也要关闭 为true时，默认为true，所以要设置为false，不会懒加载 -->
+		<setting name="aggressiveLazyLoading" value="false"/>
+	</settings>
+	<!--分页查询-->
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<!-- config params as the following -->
+			<property name="helperDialect" value="mysql"/>
+			<!--保证当页面码数为<=0后，访问第一面-->
+			<property name="reasonable" value="true"/>
+		</plugin>
+	</plugins>
+</configuration>

@@ -1,0 +1,55 @@
+1.邮件发送：Java email
+  1.1 导入JavaMail的jar包
+     	<!--发送Email 所需类库包 -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+   1.2 配置spring整合JavaMail的一个配置文件
+      
+    <bean class="org.springframework.mail.javamail.JavaMailSenderImpl">
+         <!-- 邮件发送服务器 -->
+        <property name="host" value="smtp.163.com"></property>
+        <!-- 发件人的邮箱 -->
+        <property name="username" value="twz1781748566@163.com"></property>
+        <!-- 不是邮箱密码，而是邮箱的授权码 -->
+        <property name="password"  value="123abc"></property>
+        <!-- 邮件发送的编码格式 -->
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <property name="javaMailProperties">
+             <props>
+                 <!-- 邮箱服务器是否支持验证 -->
+                 <prop key="mail.smtp.auth">true</prop>
+                 <!-- 邮箱服务器连接超时时间  毫秒-->
+                 <prop key="mail.smtp.timeout">300000</prop>
+             </props>
+        </property>
+    </bean>s
+  
+  1.3. 
+   public  void test01() throws  Exception{
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans-email.xml");
+        JavaMailSenderImpl bean = context.getBean(JavaMailSenderImpl.class);
+
+        //邮件对象
+        MimeMessage mimeMessage = bean.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
+
+
+        helper.setFrom("twz1781748566@163.com");
+        helper.setTo("liuhui68888@163.com");
+        helper.setSubject("这是0708班的邮件测试");
+        helper.setText("嘿嘿嘿嘿嘿嘿嘿，阿哦哦阿哦好奥");
+
+        //发送邮件
+        bean.send(mimeMessage);
+
+        System.out.println("EMAIL PASS");
+    }
+    
+  
+  
+  
+  
+  

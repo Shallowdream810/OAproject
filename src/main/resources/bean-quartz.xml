@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 自定义的job类-->
+    <bean id="loginPrint" class="com.ghh.job.LoginPrint"></bean>
+    <!-- JobDetail对象-->
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="loginPrint" />
+        <property name="targetMethod" value="pringtln" />
+    </bean>
+    <!--3.配置trigger简单触发器 -->
+    <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jobDetail" />
+        <property name="cronExpression" value="0/1 * 8 * * ?" /><!-- 从14点开始直到14点59分每隔1分钟运行一次 -->
+    </bean>
+    <!-- 4.配置scheduler容器 -->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="cronTrigger" />
+            </list>
+        </property>
+    </bean>
+
+</beans>
