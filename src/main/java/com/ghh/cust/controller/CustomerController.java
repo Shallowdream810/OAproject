@@ -94,7 +94,7 @@ public class CustomerController {
                 }
             }
         }
-        Map<String,Object> map = new HashMap<>();
+        Map<String,Object> map = new HashMap();
         map.put("statue","200");
         map.put("message1","导出成功");
         return  map;
@@ -116,7 +116,6 @@ public class CustomerController {
 //    通过条件模糊查询
     @RequestMapping(value = "/search",method = RequestMethod.GET)
     public ModelAndView searchCust(Integer cid,String keyword,Integer orderby){
-        System.out.println(cid+"=="+keyword+"==="+orderby);
         ModelAndView mv = new ModelAndView("customer");
         List<Customer> list =  custService.searchCust(cid,keyword,orderby);
         mv.addObject("custlist",list);
@@ -128,7 +127,7 @@ public class CustomerController {
     @ResponseBody
     public Map<String,Object> batchDelete(@PathVariable(value = "ids") Integer[] ids){
         boolean b =  custService.batchDelete(ids);
-        Map<String,Object> map = new HashMap<>();
+        Map<String,Object> map = new HashMap<String,Object>();
         if (b){
             map.put("status",200);
             map.put("msage","删除成功");
