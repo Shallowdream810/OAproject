@@ -87,7 +87,7 @@ public class ProjectController {
                 }
             }
         }
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap();
         map.put("status",200);
         map.put("message","导出成功");
         return map;
@@ -117,7 +117,7 @@ public class ProjectController {
     @RequestMapping(value = "/delete/{ids}",method = RequestMethod.DELETE)
     @ResponseBody
     public Map<String,Object> deletePro(@PathVariable(value = "ids")Integer[] ids){
-        Map<String,Object> map = new HashMap<>();
+        Map<String,Object> map = new HashMap();
         iProjectService.deletePro(ids);
         map.put("status","200");
         return map;

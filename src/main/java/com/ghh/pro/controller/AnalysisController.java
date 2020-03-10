@@ -85,7 +85,7 @@ public class AnalysisController {
                 }
             }
         }
-        Map<String,Object> map = new HashMap<>();
+        Map<String,Object> map = new HashMap();
         map.put("statu",200);
         map.put("message","导出成功");
         return map;

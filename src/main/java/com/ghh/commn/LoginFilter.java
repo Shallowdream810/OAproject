@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class LoginFilter implements Filter {
-    @Override
+
     public void init(FilterConfig filterConfig) throws ServletException {
     }
-    @Override
+
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest request1 = (HttpServletRequest)request;
         String requestURI = request1.getRequestURI();
@@ -25,7 +25,7 @@ public class LoginFilter implements Filter {
             response1.sendRedirect(request1.getContextPath()+"/login.jsp");
         }
     }
-    @Override
+
     public void destroy() {
 
     }

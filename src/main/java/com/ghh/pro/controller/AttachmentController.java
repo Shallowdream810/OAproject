@@ -46,7 +46,7 @@ public class AttachmentController  {
         }
         atta.setPath(realPath+"/"+realName);
         attachmentService.saveAttaInfo(atta);
-        Map<String,Object> map = new HashMap<>();
+        Map<String,Object> map = new HashMap();
         map.put("statusCode",200);
         return map;
     }

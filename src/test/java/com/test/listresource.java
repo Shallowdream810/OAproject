@@ -9,7 +9,7 @@ public class listresource {
 
     @Test
     public void  test01(){
-        LinkedList<Integer> list = new LinkedList<>();
+        LinkedList<Integer> list = new LinkedList();
         list.add(1);
         list.add(2);
         list.add(3);

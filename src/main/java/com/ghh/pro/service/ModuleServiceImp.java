@@ -21,7 +21,7 @@ public class ModuleServiceImp implements ModuleService {
     @Resource
     private AnalysisMapper analysisMapper;
 
-    @Override
+
     public PageInfo<Model> findAll(Integer pageNum, Map<String, Object> search) {
         //查询需求分析
 
@@ -52,10 +52,10 @@ public class ModuleServiceImp implements ModuleService {
             String title = analysisMapper.selectByPrimaryKey(analysisFk).getTitle();
             m.setAnalyname(title);
         }
-        PageInfo<Model> modelPageInfo = new PageInfo<>(models,5);
+        PageInfo<Model> modelPageInfo = new PageInfo(models,5);
         return modelPageInfo;
     }
-    @Override
+
     public void insertInfo(Model model) {
         modelMapper.insert(model);
     }

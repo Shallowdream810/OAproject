@@ -29,5 +29,5 @@
     <!--   发送邮件的配置信息-->
     <import resource="classpath:bean-Email.xml"/>
      <!--   配置redis数据  -->
-    <import resource="redis.xml"/>
+    <!--<import resource="redis.xml"/>-->
 </beans>

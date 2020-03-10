@@ -5,14 +5,10 @@ import org.quartz.*;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 
 public class EmailJob implements Job {
-    @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         //此方法得到的map与控制层是同一个map对象
         JobDataMap dataMap = jobExecutionContext.getMergedJobDataMap();

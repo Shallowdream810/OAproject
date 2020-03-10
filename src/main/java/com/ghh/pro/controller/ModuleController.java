@@ -36,7 +36,7 @@ public class ModuleController {
         PageInfo<Model> page =   moduleService.findAll(pageNum,search);
         String requestURI = request.getRequestURI();
         String requestInfo = Page.addSearch(search);
-        Map<String,Object> map  = new HashMap<>();
+        Map<String,Object> map  = new HashMap();
         map.put("page",page);
         map.put("requestURI",requestURI);
         map.put("requestInfo", requestInfo);

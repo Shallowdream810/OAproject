@@ -10,7 +10,7 @@ import java.util.Set;
 public class Page {
     //通过方法获取对应的map类型，将区分模糊查询和精确查询，对模糊查询的条件添加like
     public static Map<String, String> getMapString(Map<String, Object> search) {
-        Map<String,String> map = new HashMap<>();
+        Map<String,String> map = new HashMap();
 //        遍历获取的search的map集合
         Set<Map.Entry<String, Object>> entries = search.entrySet();
         for (Map.Entry<String, Object> entry : entries) {

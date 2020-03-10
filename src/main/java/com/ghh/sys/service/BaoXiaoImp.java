@@ -17,7 +17,7 @@ public class BaoXiaoImp implements BaoXiaoService {
     private BaoXiaoMapper baoXiaoMapper;
 
     //在service层做分页
-    @Override
+
     public PageInfo<BaoXiao> findAll(Integer pageNum, Integer eid, Map<String, Object> search) {
         BaoXiaoExample example = new BaoXiaoExample();
         BaoXiaoExample.Criteria criteria = example.createCriteria();
@@ -46,10 +46,10 @@ public class BaoXiaoImp implements BaoXiaoService {
          */
         PageHelper.startPage(pageNum,3);
         List<BaoXiao> list = baoXiaoMapper.selectByExample(example);
-        PageInfo<BaoXiao> page = new PageInfo<>(list,3);
+        PageInfo<BaoXiao> page = new PageInfo(list,3);
         return page;
     }
-    @Override
+
     public void saveInfo(BaoXiao baoXiao) {
         String bxid = UUID.randomUUID().toString().replaceAll("-", "");
         baoXiao.setBxid(bxid);
