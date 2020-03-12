@@ -18,7 +18,6 @@ public class CarController {
     @RequestMapping("/test")
     public  String test(){
         carTestService.saveCar();
-        carTestService.insertCar();
         car.setName("123");
         return "info";
     }
