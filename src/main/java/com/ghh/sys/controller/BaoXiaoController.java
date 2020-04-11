@@ -50,6 +50,7 @@ public class BaoXiaoController {
         mv.addObject("page",page);
         mv.addObject("requestInfo",requestInfo);
         mv.addObject("requestURI",requestURI);
+        System.out.println("伪善分支");
         return  mv;
     }
 }
