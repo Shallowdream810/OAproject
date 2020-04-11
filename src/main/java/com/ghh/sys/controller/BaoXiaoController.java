@@ -51,6 +51,7 @@ public class BaoXiaoController {
         mv.addObject("requestInfo",requestInfo);
         mv.addObject("requestURI",requestURI);
         System.out.println("伪善分支");
+        System.out.println("这一分支");
         return  mv;
     }
 }
